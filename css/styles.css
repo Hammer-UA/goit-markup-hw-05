@@ -64,7 +64,6 @@ body {
 } */
 
 .header {
-  display: flex;
   border-bottom: 1px solid #eeeeee;
   padding: 24px 0;
 }
@@ -406,9 +405,29 @@ body {
 }
 
 .what-we-do-list-item {
+  position: relative;
   margin-left: 30px;
   margin-top: 30px;
   flex-basis: calc((100% - 90px) / 3);
+}
+
+.what-we-do-list-dg {
+}
+
+.what-we-do-list-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 27px 0 28px 0;
+  text-align: center;
+  background: rgba(47, 48, 58, 0.8);
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+  color: var(--main-title-text-color);
 }
 
 .what-we-do-img {
@@ -627,6 +646,33 @@ top: 174px;
   margin-left: 30px;
   margin-top: 30px;
   flex-basis: calc((100% - 90px) / 3);
+}
+
+.portfolio-img-list-item:hover .overlay,
+.portfolio-img-list-item:focus .overlay {
+  transform: translateY(0%);
+}
+
+.portfolio-img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* width: 100%; */
+  height: 100%;
+  background: rgba(33, 150, 243, 0.9);
+  padding: 63px 24px;
+  font-size: 18px;
+  line-height: 1.56;
+  color: var(--main-title-text-color);
+  overflow: auto;
+
+  transform: translateY(100%);
+  transition: transform 250ms linear;
 }
 
 .portfolio-poster-text {
