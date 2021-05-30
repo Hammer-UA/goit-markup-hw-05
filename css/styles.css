@@ -11,6 +11,9 @@
   --navigation-link: #757575;
   --our-team-poster-description-background-color: #ffffff;
   --footer-accent-color: #ffffff;
+  --footer-social-list-link-bg: rgba(255, 255, 255, 0.1);
+  --backdrop-color: rgba(0, 0, 0, 0.2);
+  --modal-close-btn-border: rgba(0, 0, 0, 0.1);
 }
 
 h1,
@@ -548,7 +551,7 @@ body {
 }
 
 /* ======================= end-client-section========================= */
-/*========================================================== porfolio page======================================== */
+/*=================================== porfolio page======================================== */
 
 .portfolio-section {
   padding-top: 94px;
@@ -648,9 +651,12 @@ top: 174px;
   flex-basis: calc((100% - 90px) / 3);
 }
 
-.portfolio-img-list-item:hover .overlay,
-.portfolio-img-list-item:focus .overlay {
+.portfolio-link:hover .overlay,
+.portfolio-link:focus .overlay {
   transform: translateY(0%);
+}
+
+.portfolio-link {
 }
 
 .portfolio-img-wrapper {
@@ -662,7 +668,6 @@ top: 174px;
   position: absolute;
   top: 0;
   left: 0;
-  /* width: 100%; */
   height: 100%;
   background: rgba(33, 150, 243, 0.9);
   padding: 63px 24px;
@@ -808,7 +813,7 @@ top: 174px;
   height: 44px;
   width: 44px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--footer-social-list-link-bg);
   transition: background-color 250ms linear;
 }
 
@@ -816,4 +821,65 @@ top: 174px;
   fill: var(--footer-accent-color);
   height: 20px;
   width: 20px;
+}
+
+/* =============================footer end================== */
+
+/* ===================modal window========================== */
+
+.backdrop {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--backdrop-color);
+  opacity: 1;
+  transition: opacity 250ms linear, visibility 250ms linear;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.25);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-height: 581px;
+  min-width: 528px;
+  border-radius: 4px;
+  background-color: var(--page-secondary-color);
+
+  transform: translate(-50%, -50%) scale(1);
+
+  transition: transform 250ms linear;
+}
+
+.modal-close-btn {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 14px;
+  right: 14px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--modal-close-btn-border);
+  cursor: pointer;
+  transition: transform 1000ms linear;
+}
+
+.modal-close-btn-icon {
+  fill: currentColor;
+  width: 18px;
+  height: 18px;
 }
